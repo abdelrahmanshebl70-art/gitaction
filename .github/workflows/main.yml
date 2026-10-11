@@ -10,4 +10,9 @@ jobs:
    steps:
      - name: print
        run: echo "hellow world" 
+     - name: checkout repositry
+       uses: actions/Checkout@v7.0.1
+     - name: showfiles
+       run: ls -la
+       
   
