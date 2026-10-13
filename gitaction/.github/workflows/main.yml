@@ -1,0 +1,18 @@
+name: scond workflow
+on:
+ push:
+   branches:
+     - main
+jobs:
+  myjob:
+   runs-on: ubuntu-latest
+   steps:
+     - name: createfile
+       run: |
+        touch f1
+        touch f2
+        chmod 777 f1
+        chmod 777 f2
+        ls -la
+     - name: show data
+       run: history
