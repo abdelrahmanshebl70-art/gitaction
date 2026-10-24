@@ -1,19 +1,11 @@
-name: node
+name: condition
 on:
- workflow_dispatch: 
+ workflow_dispatch:
 jobs:
- myjob:
-  strategy:
-    fail-fast: false
-    max-parallel: 3
-    matrix:
-      os: [ ubuntu, windows, macos]
-      node_version: [14.x,15.x,16.x]
-  runs-on: ${{matrix.os}}
-  steps:
-    - name: step
-      uses: actions/setup-node@v7.1.0
-      with:
-       node-version: ${{matrix.node_version}}
-      
-    
+  expressions:
+   runs-on: ubuntu-latest
+   steps:
+     - name: print
+       run: echo "hellow world"
+       if: ${{ github.event_name== 'push'}}
+       
